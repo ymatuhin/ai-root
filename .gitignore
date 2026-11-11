@@ -1,14 +1,3 @@
-# Track only the shared agent setup; projects and new local files stay private.
-/*
-!/.gitignore
-!/AGENTS.md
-!/AGENTS_GLOBAL.md
-!/CLAUDE.md
-!/README.md
-!/skills/
-!/rules/
-!/scripts/
-
 .DS_Store
 __pycache__/
 *.pyc

@@ -31,8 +31,8 @@ def link(source, destination):
 
 def main():
     skills = sorted(path.parent for path in (ROOT / 'skills').glob('*/SKILL.md'))
-    if not skills or not (ROOT / 'AGENTS_GLOBAL.md').is_file():
-        raise SystemExit('Missing shared skills or AGENTS_GLOBAL.md')
+    if not skills or not (ROOT / 'AGENTS.md').is_file():
+        raise SystemExit('Missing shared skills or AGENTS.md')
 
     claude_skills = HOME_DIR / '.claude/skills'
     # Preserve the old repository, including its history and uncommitted files.
@@ -42,7 +42,7 @@ def main():
     codex_dir = Path(os.environ.get('CODEX_HOME', HOME_DIR / '.codex')).expanduser()
     opencode_dir = Path(os.environ.get('XDG_CONFIG_HOME', HOME_DIR / '.config')).expanduser() / 'opencode'
     for destination in [HOME_DIR / '.claude/CLAUDE.md', codex_dir / 'AGENTS.md', opencode_dir / 'AGENTS.md']:
-        link(ROOT / 'AGENTS_GLOBAL.md', destination)
+        link(ROOT / 'AGENTS.md', destination)
 
     for skill in skills:
         # Codex uses the common user directory; remove legacy copies to avoid duplicates.
@@ -54,7 +54,9 @@ def main():
 
     for rule in sorted((ROOT / 'rules/codex').glob('*.rules')):
         link(rule, codex_dir / 'rules' / rule.name)
-    print(f'Connected {len(skills)} skills and global instructions.')
+    link(ROOT / 'workspace/AGENTS.md', ROOT.parent / 'AGENTS.md')
+    link(ROOT / 'workspace/AGENTS.md', ROOT.parent / 'CLAUDE.md')
+    print(f'Connected {len(skills)} skills, global instructions and workspace map.')
 
 
 if __name__ == '__main__':
