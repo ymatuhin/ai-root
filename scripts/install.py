@@ -54,9 +54,7 @@ def main():
 
     for rule in sorted((ROOT / 'rules/codex').glob('*.rules')):
         link(rule, codex_dir / 'rules' / rule.name)
-    link(ROOT / 'workspace/AGENTS.md', ROOT.parent / 'AGENTS.md')
-    link(ROOT / 'workspace/AGENTS.md', ROOT.parent / 'CLAUDE.md')
-    print(f'Connected {len(skills)} skills, global instructions and workspace map.')
+    print(f'Connected {len(skills)} skills and global instructions.')
 
 
 if __name__ == '__main__':
