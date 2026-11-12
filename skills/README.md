@@ -26,7 +26,7 @@
 | Подготовка решения | [grilling](grilling/SKILL.md) — подробное интервью по запросу; [domain-modeling](domain-modeling/SKILL.md) — термины и ADR; [write-spec](write-spec/SKILL.md) — требования; [split-work](split-work/SKILL.md) — задачи и зависимости |
 | Выполнение и проверка | implement; [tdd](tdd/SKILL.md) — тесты и рефакторинг на зелёном; [review-bugs](review-bugs/SKILL.md) — дефекты; [review-standards](review-standards/SKILL.md) — документированные правила; [review-spec](review-spec/SKILL.md) — требования; [simplify-code](simplify-code/SKILL.md) — упрощение существующего кода |
 | Ревью | [review-changes](review-changes/SKILL.md) — один общий проход для небольшой правки или отдельные методики для сложных изменений |
-| Справочники и правила | [codebase-design](codebase-design/SKILL.md), [frontend-design](frontend-design/SKILL.md), [good-naming](good-naming/SKILL.md), [good-css](good-css/SKILL.md), [writing-for-agents](writing-for-agents/SKILL.md) |
+| Справочники и правила | [codebase-design](codebase-design/SKILL.md), [frontend-design](frontend-design/SKILL.md), [good-naming](good-naming/SKILL.md), [modern-web-guidance](modern-web-guidance/SKILL.md), [writing-for-agents](writing-for-agents/SKILL.md) |
 | Дополнительные операции | [handoff](handoff/SKILL.md) — передача контекста на любом этапе; [prototype](prototype/SKILL.md) — отдельный эксперимент; [teach](teach/SKILL.md), [retro](retro/SKILL.md) |
 
 При отсутствии субагентов оркестраторы выполняют проходы последовательно. Нет обязательной зависимости от конкретного Skill tool, MCP, трекера или PR. Спецификации, планы и задачи по умолчанию хранятся в локальной папке `.scratch/<тема>/`; публикация выполняется по запросу. Для переноса набора копируй `skills/` целиком: межнавыковые ссылки относительные. При переносе одного навыка включи его явно указанные зависимости.
@@ -47,4 +47,4 @@
 
 ## Лицензии
 
-Авторская лицензия MIT сохранена в [LICENSE](LICENSE). У `frontend-design` своя лицензия Apache 2.0: [frontend-design/LICENSE.txt](frontend-design/LICENSE.txt). `good-css` взят из vojtaholik/good-css: [версия и обновление](good-css/SOURCE.md), [лицензия MIT](good-css/LICENSE.txt).
+Авторская лицензия MIT сохранена в [LICENSE](LICENSE). У `frontend-design` своя лицензия Apache 2.0: [frontend-design/LICENSE.txt](frontend-design/LICENSE.txt). `good-css` перенесён в [архив](../archive/skills/good-css/SOURCE.md). `modern-web-guidance` взят из [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance), [лицензия Apache 2.0](modern-web-guidance/LICENSE).
