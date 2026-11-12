@@ -20,8 +20,12 @@ def backup(path):
 
 
 def link(source, destination):
-    if destination.is_symlink() and destination.resolve() == source.resolve():
-        return
+    if destination.is_symlink():
+        try:
+            if destination.resolve() == source.resolve():
+                return
+        except (OSError, RuntimeError):
+            pass
     if destination.exists() or destination.is_symlink():
         backup(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -44,12 +48,27 @@ def main():
     for destination in [HOME_DIR / '.claude/CLAUDE.md', codex_dir / 'AGENTS.md', opencode_dir / 'AGENTS.md']:
         link(ROOT / 'AGENTS.md', destination)
 
+    skill_directories = [claude_skills, HOME_DIR / '.agents/skills', opencode_dir / 'skills']
+    # Retire only links into this checkout whose target is no longer a directory; preserve
+    # unrelated links, real files, and skill directories with an incomplete SKILL.md.
+    for directory in [*skill_directories, codex_dir / 'skills']:
+        for destination in directory.glob('*'):
+            if not destination.is_symlink():
+                continue
+            try:
+                source = destination.resolve()
+            except (OSError, RuntimeError):
+                print(f'Skip: cannot resolve {destination}')
+                continue
+            if source.parent == ROOT / 'skills' and not source.is_dir():
+                backup(destination)
+
     for skill in skills:
         # Codex uses the common user directory; remove legacy copies to avoid duplicates.
         legacy = codex_dir / 'skills' / skill.name
         if legacy.exists() or legacy.is_symlink():
             backup(legacy)
-        for directory in [claude_skills, HOME_DIR / '.agents/skills', opencode_dir / 'skills']:
+        for directory in skill_directories:
             link(skill, directory / skill.name)
 
     for rule in sorted((ROOT / 'rules/codex').glob('*.rules')):

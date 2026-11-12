@@ -1,0 +1,5 @@
+interface:
+  display_name: "write-spec"
+  short_description: "Оформить требования и критерии приёмки локально"
+policy:
+  allow_implicit_invocation: true

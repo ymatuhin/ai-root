@@ -1,17 +1,14 @@
 ---
 name: implement
-description: "Implement a piece of work based on a spec or set of tickets."
-disable-model-invocation: true
+description: Исполнитель одиночной понятной задачи или задачи из implement-plan. Реализуй изменение, проверь, исправь замечания и отчитайся.
 ---
 
-Implement the work described by the user in the spec or tickets.
+# Реализация задачи
 
-If the user passes a ticket reference, fetch it from the issue tracker and state its title before starting. If the reference is ambiguous, ask.
+1. Прочитай задачу, код и применимые правила. Установи критерии приёмки и исходное состояние рабочей папки; сохрани чужие изменения. Номер задачи используй через доступный источник, локальный текст достаточен без трекера.
+2. Реализуй минимальное достаточное изменение. Подключай предметные правила по ситуации; [tdd](../tdd/SKILL.md) — при работе test-first или когда это оправдано поведением. Используй согласованные границы тестирования, не запрашивая их повторно.
+3. Выполни подходящие проверки затронутого поведения и обязательные проверки проекта. Различай пройденные, упавшие и недоступные проверки.
+4. Для самостоятельной задачи используй применимые проходы [review-changes](../review-changes/SKILL.md), затем исправь подтверждённые замечания в объёме задачи и повтори затронутые проверки. Для небольшой задачи выполни проходы сам. Внутри implement-plan ограничься локальной проверкой задачи: общий оркестратор выполнит интеграционное ревью, без рекурсивного набора ревью-субагентов.
+5. Заверши по [REPORT.md](REPORT.md). При работе внутри implement-plan передай ему изменённые файлы, результат, проверки и ограничения для сборки общего отчёта.
 
-Call the Skill tool with "tdd" where possible, at pre-agreed seams.
-
-Run typechecking regularly, single test files regularly, and the full test suite once at the end.
-
-Once done, call the Skill tool with "code-review" to review the work.
-
-Commit your work to the current branch.
+Существенное изменение согласованных поведения, объёма или интерфейсов верни на согласование; обычные детали реализации решай сам. Трекер, worktree, коммит и публикация не являются обязательными шагами и требуют соответствующего поручения.

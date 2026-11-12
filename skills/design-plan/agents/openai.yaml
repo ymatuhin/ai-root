@@ -1,0 +1,5 @@
+interface:
+  display_name: "design-plan"
+  short_description: "Подготовить и согласовать решение до реализации"
+policy:
+  allow_implicit_invocation: true

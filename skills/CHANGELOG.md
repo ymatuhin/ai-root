@@ -2,6 +2,17 @@
 
 Изменения относительно скиллов [Matt Pocock](https://github.com/mattpocock/skills) на коммите [`49dd158`](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336).
 
+## 2026-11-12
+
+- Добавлен flow explore → design-plan → согласование → implement-plan, отдельные design-options, review-standards и review-spec.
+- Добавлены review-bugs и simplify-code; code-review заменён оркестратором review-changes с единым контрактом diff и локальных изменений. Правила описания изменений перенесены в отчёт исполнителей.
+- to-spec/to-tickets переименованы в write-spec/split-work с локальным результатом по умолчанию. grill-with-docs и implement-spec заменены design-plan и implement-plan.
+- implement поддерживает одиночные задачи без обязательных трекера, коммита и полного набора ревью-субагентов. Субагенты в flow необязательны; конкретные Skill tool и MCP не требуются.
+- brainstorm и doubt доступны оркестраторам; research и grilling работают без субагентов. Методика сравнения интерфейсов перенесена из codebase-design в design-options. TDD разрешает рефакторинг на зелёных тестах.
+- Обновлены каталог и ссылки. Установщик сохраняет устаревшие ссылки этого checkout в резервной папке.
+- prototype сохранён; разделения testing/tdd и domain-modeling/record-decision отложены, frontend-design не изменён.
+- Удалён навык настройки проекта вместе с шаблонами трекеров. Спецификации и планы по умолчанию сохраняются в локальной `.scratch/<тема>/`.
+
 ## 2026-11-03
 
 ### Изменено

@@ -1,0 +1,5 @@
+interface:
+  display_name: "split-work"
+  short_description: "Разбить план на проверяемые задачи с зависимостями"
+policy:
+  allow_implicit_invocation: true
