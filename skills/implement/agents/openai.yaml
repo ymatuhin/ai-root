@@ -1,5 +1,5 @@
 interface:
   display_name: "implement"
-  short_description: "Реализовать задачу, проверить и отчётливо подвести итог"
+  short_description: "Выполнить задачу или согласованный план и проверить результат"
 policy:
   allow_implicit_invocation: true

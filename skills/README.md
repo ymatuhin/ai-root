@@ -8,13 +8,20 @@
 
 ## Основной flow
 
-[explore](explore/SKILL.md) → [design-plan](design-plan/SKILL.md) → согласование → [implement-plan](implement-plan/SKILL.md).
+Основные команды:
 
-Для понятной одиночной задачи достаточно [implement](implement/SKILL.md). Оркестратор подключает методики других навыков по условиям; предметный навык решает одну задачу. Роль и способ вызова независимы: навыки flow и их строительные блоки доступны пользователю и другим навыкам. Префиксы meta/solo/auto не нужны.
+- [explore](explore/SKILL.md) — выбрать подход, когда он ещё не определён. Исследование, сравнение и проверка сложности подключаются по необходимости.
+- [design-plan](design-plan/SKILL.md) — подготовить выбранное решение к реализации и согласовать существенные вопросы.
+- [implement](implement/SKILL.md) — выполнить понятную задачу или согласованный план. Для плана из нескольких задач сам подключает [implement-plan](implement-plan/SKILL.md).
+- [review-changes](review-changes/SKILL.md) — проверить изменения без правок.
+
+Для понятной задачи достаточно implement. Если сначала нужно выбрать и уточнить решение: explore → design-plan → согласование → implement. Ревью входит в реализацию; отдельно его вызывают для самостоятельной проверки.
+
+Остальные навыки подключаются по условиям и остаются доступны для прямого вызова. write-spec, split-work и отдельные проходы ревью не требуют ручного запуска на каждом этапе.
 
 | Группа | Навыки и назначение |
 | --- | --- |
-| Основной flow — оркестраторы | explore — подход; design-plan — пакет решения; implement-plan — выполнение согласованных задач |
+| Подготовка решения и выполнение плана | explore — подход; design-plan — пакет решения; implement-plan — внутреннее выполнение согласованных задач |
 | Отдельные операции | [research](research/SKILL.md) — факты; [brainstorm](brainstorm/SKILL.md) — подходы; [doubt](doubt/SKILL.md) — необходимость и сложность будущего решения |
 | Подготовка решения | [grilling](grilling/SKILL.md) — уточнение; [domain-modeling](domain-modeling/SKILL.md) — термины и ADR; [write-spec](write-spec/SKILL.md) — требования; [split-work](split-work/SKILL.md) — задачи и зависимости |
 | Выполнение и проверка | implement; [tdd](tdd/SKILL.md) — тесты и рефакторинг на зелёном; [review-bugs](review-bugs/SKILL.md) — дефекты; [review-standards](review-standards/SKILL.md) — документированные правила; [review-spec](review-spec/SKILL.md) — требования; [simplify-code](simplify-code/SKILL.md) — упрощение существующего кода |
@@ -39,4 +46,4 @@
 
 ## Лицензии
 
-Авторская лицензия MIT сохранена в [LICENSE](LICENSE). У `frontend-design` своя лицензия Apache 2.0: [frontend-design/LICENSE.txt](frontend-design/LICENSE.txt).
+Авторская лицензия MIT сохранена в [LICENSE](LICENSE). У `frontend-design` своя лицензия Apache 2.0: [frontend-design/LICENSE.txt](frontend-design/LICENSE.txt). `good-css` взят из vojtaholik/good-css: [версия и обновление](good-css/SOURCE.md), [лицензия MIT](good-css/LICENSE.txt).

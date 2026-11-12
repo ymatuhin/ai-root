@@ -1,6 +1,6 @@
 ---
 name: review-changes
-description: Оркестратор. Проводи комплексное ревью diff, ветки или локальных изменений через review-bugs, review-standards, review-spec и simplify-code.
+description: Проводи комплексное ревью diff, ветки или локальных изменений через review-bugs, review-standards, review-spec и simplify-code.
 ---
 
 # Ревью изменений

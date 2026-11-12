@@ -5,6 +5,8 @@ description: Modern CSS techniques that replace breakpoint ladders, wrapper elem
 
 # Good CSS
 
+For the pinned upstream source and maintenance instructions, see [SOURCE.md](SOURCE.md) when updating this skill.
+
 One declaration that adapts on its own beats a set of breakpoints, and a CSS feature beats a script. Use JavaScript only where it makes a result nicer that already works without it.
 
 Each technique is a set of properties and values, so it works in any authoring system. Class names in the examples are placeholders. Write the declarations in what the project already uses, whether that is a stylesheet, Tailwind utilities or StyleX objects. Where that system has no shorthand for a declaration, write it the long way, as a Tailwind arbitrary property or a rule in the project's CSS file. Do not swap the technique for a breakpoint.

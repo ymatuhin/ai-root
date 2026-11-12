@@ -55,7 +55,7 @@ Send them the file, or open it for them. They'll click through the walkthroughs 
 
 ### 5. Capture the answer and the prototype
 
-Once the prototype has answered its question, capture the answer, then capture the prototype the way the [SKILL](SKILL.md) describes. The logic-specific mapping: the validated reducer / machine / function set lifts into the real module (the decision, absorbed); the HTML shell rides along to the throwaway branch that keeps the prototype as a primary source, and being one self-contained file, it stays trivially re-runnable there.
+Record the scenarios explored, what they demonstrated about the state model, and what remains unverified. Include the path to the self-contained HTML file so the experiment can be repeated. Finish according to [SKILL.md](SKILL.md); use these findings as input if production implementation is separately requested.
 
 ## Anti-patterns
 
