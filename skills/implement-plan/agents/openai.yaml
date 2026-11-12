@@ -1,5 +1,0 @@
-interface:
-  display_name: "implement-plan"
-  short_description: "Выполнить согласованный план и проверить интеграцию"
-policy:
-  allow_implicit_invocation: true
