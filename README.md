@@ -1,6 +1,6 @@
 # ai-root
 
-Общий источник пользовательских правил и навыков для Claude Code, Codex и OpenCode. Репозиторий расположен в `~/Dev/ai-root`. Остальные проекты находятся рядом с ним и не входят в его Git-дерево.
+Общий источник пользовательских правил и навыков для Claude Code, Codex, OpenCode и Antigravity (`agy`). Репозиторий расположен в `~/Dev/ai-root`. Остальные проекты находятся рядом с ним и не входят в его Git-дерево.
 
 - `AGENTS.md` — общие правила для всех проектов.
 - `CLAUDE.md` — ссылка на общие правила в `AGENTS.md`.
@@ -20,10 +20,13 @@ python3 scripts/install.py
 | Глобальные правила Claude | `~/.claude/CLAUDE.md` |
 | Глобальные правила Codex | `~/.codex/AGENTS.md` |
 | Глобальные правила OpenCode | `~/.config/opencode/AGENTS.md` |
+| Глобальные правила Antigravity | `~/.gemini/config/AGENTS.md` |
 | Навыки Claude | `~/.claude/skills/<имя>` |
 | Навыки Codex | `~/.agents/skills/<имя>` |
 | Навыки OpenCode | `~/.config/opencode/skills/<имя>` |
+| Навыки Antigravity | `~/.gemini/config/skills/<имя>` |
 | Разрешения Codex | `~/.codex/rules/*.rules` |
+| Глобальный Git-игнор | `.scratch/` в `core.excludesfile` или `$XDG_CONFIG_HOME/git/ignore` |
 
 Учитываются `CODEX_HOME` и `XDG_CONFIG_HOME`. Заменяемые файлы перемещаются в `~/.local/state/ai-root/backups/<дата-время>/` с сохранением пути относительно домашней папки. Старый репозиторий навыков сохраняется там целиком, включая `.git` и незакоммиченные изменения. Старый удалённый репозиторий скрипт не удаляет.
 
@@ -33,6 +36,6 @@ python3 scripts/install.py
 
 ## Источники
 
-Пути подключения сверены с документацией [Codex](https://developers.openai.com/codex/skills/), [Claude Code](https://code.claude.com/docs/en/skills), [навыков OpenCode](https://opencode.ai/docs/skills/) и [инструкций OpenCode](https://opencode.ai/docs/instructions/).
+Пути подключения сверены с документацией [Codex](https://developers.openai.com/codex/skills/), [Claude Code](https://code.claude.com/docs/en/skills), [навыков OpenCode](https://opencode.ai/docs/skills/), [инструкций OpenCode](https://opencode.ai/docs/instructions/), [правил Antigravity](https://antigravity.google/docs/rules/) и [навыков Antigravity](https://antigravity.google/docs/skills/).
 
 Происхождение и лицензии перенесённых навыков — в [skills/README.md](skills/README.md).

@@ -1,6 +1,6 @@
 ---
 name: domain-modeling
-description: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
+description: Проработка предметной модели проекта, словаря терминов и архитектурных решений. Открывай при обсуждении доменной терминологии, создании или правке GLOSSARY.md и записи ADR.
 ---
 
 # Domain Modeling

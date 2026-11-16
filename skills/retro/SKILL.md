@@ -1,6 +1,6 @@
 ---
 name: retro
-description: "Conduct a retrospective on a coding session."
+description: Ретроспектива сессии и предложения по улучшению правил, навыков и окружения агента.
 disable-model-invocation: true
 ---
 

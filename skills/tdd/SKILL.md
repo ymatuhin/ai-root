@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+description: Разработка через тестирование (TDD, red-green-refactor) по публичным границам модулей. Открывай при запросе идти от падающего теста (test-first) или короткими циклами тест → код → рефакторинг.
 ---
 
 # Test-Driven Development

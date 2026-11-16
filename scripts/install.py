@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 import os
 import shutil
+import subprocess
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,7 +23,7 @@ def backup(path):
 def link(source, destination):
     if destination.is_symlink():
         try:
-            if destination.resolve() == source.resolve():
+            if Path(os.readlink(destination)) == source and destination.resolve() == source.resolve():
                 return
         except (OSError, RuntimeError):
             pass
@@ -31,6 +32,26 @@ def link(source, destination):
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.symlink_to(source, target_is_directory=source.is_dir())
     print(f'Link: {destination} -> {source}')
+
+
+def ensure_global_gitignore():
+    result = subprocess.run(
+        ['git', 'config', '--global', '--path', 'core.excludesfile'],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode == 0 and result.stdout.strip():
+        excludes = Path(result.stdout.strip()).expanduser()
+    else:
+        excludes = Path(os.environ.get('XDG_CONFIG_HOME', HOME_DIR / '.config')).expanduser() / 'git/ignore'
+    excludes.parent.mkdir(parents=True, exist_ok=True)
+    lines = excludes.read_text().splitlines() if excludes.is_file() else []
+    if not any(line.strip() in {'.scratch', '.scratch/', '/.scratch', '/.scratch/'} for line in lines):
+        with excludes.open('a') as handle:
+            if lines and lines[-1] != '':
+                handle.write('\n')
+            handle.write('.scratch/\n')
+        print(f'Gitignore: added .scratch/ to {excludes}')
 
 
 def main():
@@ -45,10 +66,21 @@ def main():
 
     codex_dir = Path(os.environ.get('CODEX_HOME', HOME_DIR / '.codex')).expanduser()
     opencode_dir = Path(os.environ.get('XDG_CONFIG_HOME', HOME_DIR / '.config')).expanduser() / 'opencode'
-    for destination in [HOME_DIR / '.claude/CLAUDE.md', codex_dir / 'AGENTS.md', opencode_dir / 'AGENTS.md']:
+    gemini_config_dir = HOME_DIR / '.gemini/config'
+    for destination in [
+        HOME_DIR / '.claude/CLAUDE.md',
+        codex_dir / 'AGENTS.md',
+        opencode_dir / 'AGENTS.md',
+        gemini_config_dir / 'AGENTS.md',
+    ]:
         link(ROOT / 'AGENTS.md', destination)
 
-    skill_directories = [claude_skills, HOME_DIR / '.agents/skills', opencode_dir / 'skills']
+    skill_directories = [
+        claude_skills,
+        HOME_DIR / '.agents/skills',
+        opencode_dir / 'skills',
+        gemini_config_dir / 'skills',
+    ]
     # Retire only links into this checkout whose target is no longer a directory; preserve
     # unrelated links, real files, and skill directories with an incomplete SKILL.md.
     for directory in [*skill_directories, codex_dir / 'skills']:
@@ -73,6 +105,7 @@ def main():
 
     for rule in sorted((ROOT / 'rules/codex').glob('*.rules')):
         link(rule, codex_dir / 'rules' / rule.name)
+    ensure_global_gitignore()
     print(f'Connected {len(skills)} skills and global instructions.')
 
 

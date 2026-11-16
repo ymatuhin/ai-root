@@ -2,6 +2,14 @@
 
 Изменения относительно скиллов [Matt Pocock](https://github.com/mattpocock/skills) на коммите [`49dd158`](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336).
 
+## 2026-11-16
+
+- `review-bugs`, `review-standards` и `review-spec` перенесены внутрь `review-changes/` как `BUGS.md`, `STANDARDS.md` и `SPEC.md`; отдельные верхнеуровневые скиллы удалены. В полном режиме `review-changes` по умолчанию запускается один свежий read-only субагент с применимыми чеклистами вместо пачки отдельных агентов; исправлена висячая ссылка на консультанта в `LOOP.md`, а `CHANGES.md` исключает `.scratch/` и чужие грязные файлы вне задачи без обязательных снимков в `/tmp`.
+- В `implement` добавлен встроенный быстрый путь для локальных понятных правок (самопроверка + краткий отчёт без открытия `review-changes` и `REPORT.md`) и обязательная перепроверка новых/переименованных идентификаторов по `good-naming` после реализации.
+- `grilling` переведён в ручной вызов (`disable-model-invocation: true`, `allow_implicit_invocation: false`).
+- В `design-plan`, `write-spec`, `split-work` и `implement/PLAN.md` добавлено переиспользование уже собранных в сессии фактов и контекста `.scratch/` при работе в worktree; `split-work` в `design-plan` стал условным (для 1–2 очевидных шагов не создаётся отдельный граф задач).
+- Из `tdd` убран триггер `or wants integration tests`. Все собственные описания скиллов переведены на единый русский формат указателя контекста (`modern-web-guidance` сохранён без изменений как сторонний скилл).
+
 ## 2026-11-12
 
 - Упрощён набор: implement-plan перенесён в implement/PLAN.md, design-options — в codebase-design/INTERFACES.md; отдельные команды удалены. Ссылки и каталог обновлены.

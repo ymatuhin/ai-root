@@ -1,11 +1,11 @@
 ---
 name: handoff
-description: Compact the current conversation into a handoff document for another agent to pick up.
-argument-hint: "What will the next session be used for?"
+description: Сводка текущего разговора в handoff-документ для продолжения в новой сессии.
+argument-hint: "На чём сфокусироваться в следующей сессии?"
 disable-model-invocation: true
 ---
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS (`$TMPDIR`, else `/tmp`; `%TEMP%` on Windows) - not the current workspace.
+Write a handoff document summarising the current conversation so a fresh agent can continue the work. Inside a workspace, save to `.scratch/<topic>/handoff.md` (globally gitignored and accessible to sandboxed sessions) and print its absolute path; outside a workspace, fall back to the OS temporary directory (`$TMPDIR`, else `/tmp`; `%TEMP%` on Windows).
 
 Include a "suggested skills" section in the document, naming which skills the next agent should read and apply with the tools available in its environment.
 
