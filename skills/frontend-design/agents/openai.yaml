@@ -1,0 +1,5 @@
+interface:
+  display_name: "frontend-design"
+  short_description: "Визуальное направление, типографика и композиция UI"
+policy:
+  allow_implicit_invocation: true

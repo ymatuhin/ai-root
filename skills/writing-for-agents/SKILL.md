@@ -1,6 +1,7 @@
 ---
 name: writing-for-agents
-description: Правила написания инструкций, указателей контекста и навыков для агентов. Открывай при создании или правке скиллов, AGENTS.md и CLAUDE.md.
+description: Правила написания инструкций, указателей контекста и навыков для агентов.
+disable-model-invocation: true
 ---
 
 Reference for writing any document an agent consumes: a skill, an `AGENTS.md` / `CLAUDE.md`, a doc reached by a pointer. The packaging differs; the writing does not: the same levers make each one predictable, since the agent takes the same _process_ every run rather than producing the same output.

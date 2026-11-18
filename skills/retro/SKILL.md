@@ -23,14 +23,3 @@ The user has asked for a **retrospective**. You are suggesting improvements to t
 - **Information access**: look for opportunities to increase the agent's access to information. Teeing dev server logs, readonly access to third-party services. _Use when_ a crucial piece of information was not available to the agent.
 
 4. Present these candidates to the user, in order of severity.
-
-## Reference
-
-### Files
-
-You have access to several files in the repo:
-
-- `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
-- `CODING_STANDARDS.md`: implementers apply these rules while making changes; reviewers check compliance against the relevant code and context. Keep detailed references behind pointers when they are needed only for specific work.
-- Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
-- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the [writing-for-agents](../writing-for-agents/SKILL.md) skill.

@@ -1,0 +1,5 @@
+interface:
+  display_name: "good-naming"
+  short_description: "Выбор и перепроверка имён в коде"
+policy:
+  allow_implicit_invocation: true

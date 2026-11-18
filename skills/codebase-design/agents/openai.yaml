@@ -1,3 +1,5 @@
 interface:
   display_name: "codebase-design"
   short_description: "Проектирование глубоких модулей, границ и интерфейсов"
+policy:
+  allow_implicit_invocation: true

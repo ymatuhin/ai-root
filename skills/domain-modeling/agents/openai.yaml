@@ -1,3 +1,5 @@
 interface:
   display_name: "domain-modeling"
   short_description: "Предметная модель, GLOSSARY.md и запись ADR"
+policy:
+  allow_implicit_invocation: true

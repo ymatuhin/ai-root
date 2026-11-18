@@ -1,5 +1,5 @@
 interface:
   display_name: "explore"
-  short_description: "Исследовать неизвестную задачу и выбрать подход до планирования"
+  short_description: "Выбрать подход и сравнить варианты с ценой и главным риском"
 policy:
   allow_implicit_invocation: true

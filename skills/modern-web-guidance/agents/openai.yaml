@@ -1,0 +1,5 @@
+interface:
+  display_name: "modern-web-guidance"
+  short_description: "Поиск актуальных паттернов HTML, CSS и клиентского JS"
+policy:
+  allow_implicit_invocation: true

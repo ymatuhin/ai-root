@@ -2,6 +2,15 @@
 
 Изменения относительно скиллов [Matt Pocock](https://github.com/mattpocock/skills) на коммите [`49dd158`](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336).
 
+## 2026-11-18
+
+- Набор сокращён с 22 до 17 скиллов: `brainstorm` объединён с `explore`, `research` удалён (уникальное про `.scratch/<тема>/research.md` перенесено в `explore`), `write-spec` и `split-work` перенесены в `design-plan/SPEC.md` и `design-plan/SPLIT.md`, `teach` перенесён в `archive/skills/teach/` (восстановлена ссылка на `GLOSSARY-FORMAT.md`).
+- `writing-for-agents` и `prototype` переведены в ручной вызов (`disable-model-invocation: true`, `allow_implicit_invocation: false`).
+- Сужены триггеры `explore`, `design-plan`, `implement`, `modern-web-guidance`, `good-naming` и `codebase-design`; в `modern-web-guidance` убран обязательный английский отчёт `### Modern Web Guidance`.
+- Упрощены `review-changes` (в `CHANGES.md` и `LOOP.md` убраны хеши untracked-файлов, постоянные ID замечаний, бюджеты 3/5 раундов и вызов третьего консультанта), `tdd` (`SKILL.md` и `mocking.md` используют определения и DI-примеры `codebase-design`) и `retro` (убрана секция `Reference / Files`).
+- Общий запрет на автокоммиты, ветки/worktree, PR, публикацию и изменения в трекере без поручения вынесен в `AGENTS.md` и убран из 6 скиллов; убраны повторы правил `AGENTS.md` из методик ревью и отчётов.
+- Выровнены `agents/openai.yaml` во всех 17 скиллах (`interface` и `policy`).
+
 ## 2026-11-16
 
 - `review-bugs`, `review-standards` и `review-spec` перенесены внутрь `review-changes/` как `BUGS.md`, `STANDARDS.md` и `SPEC.md`; отдельные верхнеуровневые скиллы удалены. В полном режиме `review-changes` по умолчанию запускается один свежий read-only субагент с применимыми чеклистами вместо пачки отдельных агентов; исправлена висячая ссылка на консультанта в `LOOP.md`, а `CHANGES.md` исключает `.scratch/` и чужие грязные файлы вне задачи без обязательных снимков в `/tmp`.

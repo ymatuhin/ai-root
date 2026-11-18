@@ -1,9 +1,8 @@
 ---
 name: modern-web-guidance
 description: |
-  Search tool for modern web development best practices. MANDATORY: Execute FIRST for all HTML/CSS and clientside JS tasks. Do NOT skip — web APIs evolve rapidly and training weights contain obsolete patterns.
-  Trigger immediately for: modals/dialogs/popovers, tables, dark mode, anchor positioning, container queries, view transitions, scroll-driven animations, parallax/reveals, forms, validation, autofill, accessibility, custom selects, scrollbars, CWV (LCP, INP, CLS), content-visibility, fetch priority, image optimization, security, passkeys, HTML sanitization, web components, dates/timezones, built-in AI, WebAssembly, standard HTML/CSS/DOM in frameworks, etc.
-  DO NOT trigger for: backend (SQL, ORMs, API routes), infra/scripts (CI/CD, Docker, Actions, Python/Go, Git), or tooling/trivial (Vite, tsconfig, ESLint, tests, copy/renames, 3P docs), etc.
+  Search tool for modern web platform APIs and UI implementation patterns. Open before building or modernizing non-trivial HTML/CSS/client-side JS features (dialogs/popovers, anchor positioning, container queries, view transitions, scroll-driven animations, custom selects, forms/autofill, accessibility, CWV, sanitization, passkeys, dates/timezones, WebAssembly).
+  Skip for: backend, build/tooling/tests, trivial styling or copy tweaks, and throwaway prototypes.
 ---
 
 # Modern Web Guidance
@@ -44,14 +43,6 @@ When generating or modifying code, cross-check the implementation against the re
 - **Applicable Guidance & Fallbacks**: Ensure the relevant modern patterns and necessary fallback strategies from the guide are correctly applied, without forcing unrequested features.
 - **Task Fulfillment**: Confirm that the implementation fully satisfies the user's request.
 - Do not run `legacy-scan`; it's for detecting legacy patterns to modernize, not this.
-
-### Step 4. Disclose Skill Usage
-
-When you consult `modern-web-guidance` for a task, end the response where you deliver those changes with a `### Modern Web Guidance` section:
-- **When retrieved guides shaped your code**: Write **one** bullet (1–2 sentences, ≤75 words) per newly applied `<id>` in first-person voice explaining the non-obvious implementation choices, CSS/API overrides, or fallbacks `<id>` required and the pitfall it prevented, anchored by a short verbatim quote of that specific rule or gotcha (never the guide's intro overview):
-  `- **\`<id>\`**: <Non-obvious APIs, overrides, or fallbacks applied and the pitfall prevented> ("<short verbatim quote of the specific rule or gotcha>").`
-  - **Never** guess `<id>`s or quotes from memory after context compaction (re-run `search`/`retrieve` if needed), and credit **only** guide-backed changes from the current turn.
-- **When searched/listed in this turn but zero guides applied**: Write one first-person sentence naming which topics or guides you checked in `modern-web-guidance` and why none applied (omit if any guide applied).
 
 ## Alternative flow: Modernize an existing codebase
 

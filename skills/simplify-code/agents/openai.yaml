@@ -1,0 +1,5 @@
+interface:
+  display_name: "simplify-code"
+  short_description: "Упрощение кода с сохранением поведения и контрактов"
+policy:
+  allow_implicit_invocation: true

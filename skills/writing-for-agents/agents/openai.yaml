@@ -1,3 +1,5 @@
 interface:
   display_name: "writing-for-agents"
   short_description: "Правила написания инструкций и навыков для агентов"
+policy:
+  allow_implicit_invocation: false

@@ -1,2 +1,5 @@
+interface:
+  display_name: "doubt"
+  short_description: "Проверка плана или решения на лишнюю сложность"
 policy:
   allow_implicit_invocation: true

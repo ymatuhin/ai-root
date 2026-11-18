@@ -1,6 +1,7 @@
 ---
 name: prototype
-description: Одноразовый прототип для быстрой проверки гипотезы в логике или UI. Открывай при просьбе собрать черновой эксперимент без продакшен-кода.
+description: Одноразовый прототип для быстрой проверки гипотезы в логике или UI.
+disable-model-invocation: true
 ---
 
 # Prototype
@@ -23,4 +24,4 @@ The two branches produce very different artifacts, so getting this wrong wastes 
 3. **No persistence by default.** State lives in memory. Persistence is the thing the prototype is _checking_, not something it should depend on. If the question explicitly involves a database, hit a scratch DB or a local file with a clear "PROTOTYPE, wipe me" name.
 4. **Skip the polish.** No tests, no error handling beyond what makes the prototype _runnable_, no abstractions. The point is to learn something fast.
 5. **Surface the state.** After every action (logic) or on every variant switch (UI), print or render the full relevant state so the user can see what changed.
-6. **Capture the answer.** Report the question, what the experiment demonstrated, remaining limits, and the prototype's local path and run instructions. Record the findings in the existing plan or spec when one exists. Production implementation, commits, branches and tracker updates require a corresponding user request; a successful experiment alone does not authorize them.
+6. **Capture the answer.** Report the question, what the experiment demonstrated, remaining limits, and the prototype's local path and run instructions. Record the findings in the existing plan or spec when one exists. A successful experiment alone does not authorize production implementation.

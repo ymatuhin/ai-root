@@ -1,40 +1,8 @@
-# When to Mock
+# Mocking at Boundaries
 
-Mock at **system boundaries** only:
+Mock only true external dependencies (third-party APIs, clock/randomness, unowned services) via injected ports; for owned code and local-substitutable stores, test through real implementations or in-memory adapters as defined in [codebase-design/DEEPENING.md](../codebase-design/DEEPENING.md).
 
-- External APIs (payment, email, etc.)
-- Databases (sometimes - prefer test DB)
-- Time/randomness
-- File system (sometimes)
-
-Don't mock:
-
-- Your own classes/modules
-- Internal collaborators
-- Anything you control
-
-## Designing for Mockability
-
-At system boundaries, design interfaces that are easy to mock:
-
-**1. Use dependency injection**
-
-Pass external dependencies in rather than creating them internally:
-
-```typescript
-// Easy to mock
-function processPayment(order, paymentClient) {
-  return paymentClient.charge(order.total);
-}
-
-// Hard to mock
-function processPayment(order) {
-  const client = new StripeClient(process.env.STRIPE_KEY);
-  return client.charge(order.total);
-}
-```
-
-**2. Prefer SDK-style interfaces over generic fetchers**
+## Prefer SDK-style interfaces over generic fetchers
 
 Create specific functions for each external operation instead of one generic function with conditional logic:
 

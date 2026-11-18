@@ -1,3 +1,5 @@
 interface:
   display_name: "tdd"
   short_description: "Разработка через тестирование (red-green-refactor)"
+policy:
+  allow_implicit_invocation: true
