@@ -75,3 +75,22 @@ test("calculateTotal sums line items", () => {
   expect(calculateTotal([{ price: 10 }, { price: 5 }])).toBe(15);
 });
 ```
+
+**Zero-leverage / pass-through tests**: Exercise code with no branching or independent failure mode, or re-test a scenario already covered at a public seam.
+
+```typescript
+// BAD: Asserts static literals, pass-through wiring, or library primitives
+test("topicPath formats slug", () => {
+  expect(topicPath("auto")).toBe("/topics/auto/");
+});
+
+// GOOD: Test only where logic, transformation, or edge cases can fail;
+// cover one behavior at one seam (see ../codebase-design/DEEPENING.md: replace, don't layer)
+```
+
+Skip unit tests for:
+
+- Constants, static configs, and flat validator schemas with no custom transforms or fallbacks
+- Single-line pass-through wrappers, store proxies, and raw HTTP call wiring with no own parsing or branching
+- Static template rendering, prop/slot forwarding, and CSS module class names
+- Scenarios already verified at the owning module's public interface or an adjacent test layer
