@@ -2,6 +2,11 @@
 
 Изменения относительно скиллов [Matt Pocock](https://github.com/mattpocock/skills) на коммите [`49dd158`](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336).
 
+## 2026-11-19
+
+- Навыки `review-changes` и `design-plan` переименованы в `review` и `prepare` с обновлением ссылок и метаданных.
+- В `review` (`SKILL.md`, `BUGS.md`, `SPEC.md`) сокращён формат отчёта: сквозная нумерация, сжатое описание дефектов без трассировки зависимостей, лимит на необязательные улучшения и вывод только расхождений по требованиям.
+
 ## 2026-11-18
 
 - Набор сокращён с 22 до 17 скиллов: `brainstorm` объединён с `explore`, `research` удалён (уникальное про `.scratch/<тема>/research.md` перенесено в `explore`), `write-spec` и `split-work` перенесены в `design-plan/SPEC.md` и `design-plan/SPLIT.md`, `teach` перенесён в `archive/skills/teach/` (восстановлена ссылка на `GLOSSARY-FORMAT.md`).

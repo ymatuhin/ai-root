@@ -1,5 +1,5 @@
 interface:
-  display_name: "review-changes"
+  display_name: "review"
   short_description: "Проверить дефекты, правила и требования к изменениям"
 policy:
   allow_implicit_invocation: true
