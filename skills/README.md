@@ -6,25 +6,24 @@
 
 Что добавлено, изменено и удалено относительно оригинала — в [CHANGELOG.md](CHANGELOG.md).
 
-## Основной flow
+## Основной маршрут
 
-Основные команды:
+Основной маршрут для задачи: `explore` → `prepare` → `implement` (с согласованием после `prepare`). Для понятной локальной задачи достаточно сразу [implement](implement/SKILL.md).
 
 - [explore](explore/SKILL.md) — выбрать подход к неоднозначной задаче, при необходимости собрать факты и сравнить варианты.
 - [prepare](prepare/SKILL.md) — подготовить выбранное решение к реализации ([SPEC.md](prepare/SPEC.md), [SPLIT.md](prepare/SPLIT.md)) и согласовать существенные вопросы.
-- [implement](implement/SKILL.md) — выполнить согласованный план или нетривиальную задачу: для локальных правок работает быстрый путь с самопроверкой и кратким отчётом, для сложных и рискованных — полный цикл ревью; порядок работы с несколькими задачами описан в [PLAN.md](implement/PLAN.md).
-- [review](review/SKILL.md) — проверить изменения без правок (внутри лежат методики [BUGS.md](review/BUGS.md), [STANDARDS.md](review/STANDARDS.md) и [SPEC.md](review/SPEC.md)).
+- [implement](implement/SKILL.md) — выполнить согласованный план или нетривиальную задачу вместе с ревью по уровню риска: для локальных правок работает быстрый путь с самопроверкой diff и кратким отчётом, для сложных и рискованных — полный цикл [review](review/SKILL.md) и [LOOP.md](review/LOOP.md); порядок работы с несколькими задачами описан в [PLAN.md](implement/PLAN.md).
 
-Для понятной локальной задачи достаточно [implement](implement/SKILL.md). Если сначала нужно выбрать и уточнить решение: `explore` → `prepare` → согласование → `implement`. Перепроверка новых имён по [good-naming](good-naming/SKILL.md) входит в `implement` и `review`.
+Отдельно вызывать [review](review/SKILL.md) после `implement` не нужно: ревью и исправления уже проводятся в рамках `implement` (для плана из нескольких задач — на общем результате после интеграции). Самостоятельный `review` нужен для отдельной проверки изменений, коммитов или PR без правок кода (внутри лежат методики [BUGS.md](review/BUGS.md), [STANDARDS.md](review/STANDARDS.md) и [SPEC.md](review/SPEC.md)).
 
-Остальные навыки подключаются по условиям и остаются доступны для прямого вызова. [SPEC.md](prepare/SPEC.md) и [SPLIT.md](prepare/SPLIT.md) вызываются внутри `prepare` или напрямую при запросе ТЗ и декомпозиции.
+Перепроверка новых имён по [good-naming](good-naming/SKILL.md) входит в `implement` и `review`. Остальные навыки подключаются по условиям и остаются доступны для прямого вызова. [SPEC.md](prepare/SPEC.md) и [SPLIT.md](prepare/SPLIT.md) вызываются внутри `prepare` или напрямую при запросе ТЗ и декомпозиции.
 
 | Группа | Навыки и назначение |
 | --- | --- |
-| Подготовка решения и выполнение плана | `explore` — подход и сравнение вариантов; `prepare` — пакет решения (`SPEC.md`, `SPLIT.md`); `implement` — задача или план |
+| Основной маршрут | `explore` — подход и сравнение вариантов; `prepare` — пакет решения (`SPEC.md`, `SPLIT.md`); `implement` — выполнение задачи или плана со встроенным ревью |
 | Отдельные операции и модель | [doubt](doubt/SKILL.md) — необходимость и сложность будущего решения; [domain-modeling](domain-modeling/SKILL.md) — термины и ADR |
 | Выполнение и упрощение | `implement`; [tdd](tdd/SKILL.md) — red-green-refactor; [simplify-code](simplify-code/SKILL.md) — упрощение существующего кода |
-| Ревью | [review](review/SKILL.md) — общий проход для небольшой правки или углублённая проверка по [BUGS.md](review/BUGS.md), [STANDARDS.md](review/STANDARDS.md), [SPEC.md](review/SPEC.md), [good-naming](good-naming/SKILL.md) и [simplify-code](simplify-code/SKILL.md) |
+| Ревью | [review](review/SKILL.md) — отдельная проверка изменений, коммитов или PR без правок (при работе через `implement` не вызывается отдельно): общий проход для небольшой правки или углублённая проверка по [BUGS.md](review/BUGS.md), [STANDARDS.md](review/STANDARDS.md), [SPEC.md](review/SPEC.md), [good-naming](good-naming/SKILL.md) и [simplify-code](simplify-code/SKILL.md) |
 | Справочники и правила | [codebase-design](codebase-design/SKILL.md), [frontend-design](frontend-design/SKILL.md), [good-naming](good-naming/SKILL.md), [modern-web-guidance](modern-web-guidance/SKILL.md) |
 | Ручные команды (`disable-model-invocation`) | [grilling](grilling/SKILL.md) — подробное интервью раундами; [handoff](handoff/SKILL.md) — передача контекста; [prototype](prototype/SKILL.md) — одноразовый эксперимент; [retro](retro/SKILL.md) — ретроспектива; [writing-for-agents](writing-for-agents/SKILL.md) — правила написания инструкций |
 
