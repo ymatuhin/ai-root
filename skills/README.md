@@ -22,7 +22,7 @@
 | --- | --- |
 | Основной маршрут | `explore` — подход и сравнение вариантов; `prepare` — пакет решения (`SPEC.md`, `SPLIT.md`); `implement` — выполнение задачи или плана со встроенным ревью |
 | Отдельные операции и модель | [doubt](doubt/SKILL.md) — необходимость и сложность будущего решения; [domain-modeling](domain-modeling/SKILL.md) — термины и ADR |
-| Выполнение и упрощение | `implement`; [tdd](tdd/SKILL.md) — red-green-refactor; [simplify-code](simplify-code/SKILL.md) — упрощение существующего кода |
+| Выполнение и упрощение | `implement`; [tdd](tdd/SKILL.md) — red-green-refactor; [simplify-code](simplify-code/SKILL.md) — упрощение существующего кода и логики |
 | Ревью | [review](review/SKILL.md) — отдельная проверка изменений, коммитов или PR без правок (при работе через `implement` не вызывается отдельно): общий проход для небольшой правки или углублённая проверка по [BUGS.md](review/BUGS.md), [STANDARDS.md](review/STANDARDS.md), [SPEC.md](review/SPEC.md), [good-naming](good-naming/SKILL.md) и [simplify-code](simplify-code/SKILL.md) |
 | Справочники и правила | [codebase-design](codebase-design/SKILL.md), [frontend-design](frontend-design/SKILL.md), [good-naming](good-naming/SKILL.md), [modern-web-guidance](modern-web-guidance/SKILL.md) |
 | Ручные команды (`disable-model-invocation`) | [grilling](grilling/SKILL.md) — подробное интервью раундами; [handoff](handoff/SKILL.md) — передача контекста; [prototype](prototype/SKILL.md) — одноразовый эксперимент; [retro](retro/SKILL.md) — ретроспектива; [writing-for-agents](writing-for-agents/SKILL.md) — правила написания инструкций |
