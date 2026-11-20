@@ -18,5 +18,3 @@ description: "Подготовка нетривиального или мног�
 ```text
 /implement ./.scratch/YYYY-MM-DD-<тема>/plan.md
 ```
-
-Для выполнения в текущей сессии после согласования используй [implement](../implement/SKILL.md).
