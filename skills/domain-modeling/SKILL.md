@@ -5,70 +5,26 @@ description: Проработка предметной модели проект
 
 # Domain Modeling
 
-Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
+Используй навык, когда предметная модель меняется или уточняется (просто прочитать существующий `GLOSSARY.md` можно без него).
 
-## File structure
+## Структура файлов
 
-Most repos have a single context:
+Создавай файлы лениво — только когда есть что записать:
+- Один контекст: `GLOSSARY.md` в корне и `docs/adr/0001-<slug>.md`.
+- Несколько контекстов (если в корне есть `GLOSSARY-MAP.md`): свой `GLOSSARY.md` и `docs/adr/` внутри каждого контекста, а общие решения — в корневом `docs/adr/`.
 
-```
-/
-├── GLOSSARY.md
-├── docs/
-│   └── adr/
-│       ├── 0001-event-sourced-orders.md
-│       └── 0002-postgres-for-write-model.md
-└── src/
-```
+## Правила работы
 
-If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The map points to where each one lives:
+- **Сверяй со словарём.** Если термин пользователя расходится с `GLOSSARY.md` — сразу укажи на противоречие и уточни, какой смысл верный.
+- **Уточняй размытые слова.** Вместо перегруженных слов вроде «аккаунт» предлагай точный доменный термин (например, `Customer` или `User`).
+- **Проверяй сценариями и кодом.** Уточняй границы понятий на конкретных крайних случаях и сверяй слова пользователя с тем, что реально делает код.
+- **Обновляй `GLOSSARY.md` сразу.** Записывай согласованные термины по ходу обсуждения в формате [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md). В глоссарии только доменный смысл — без деталей реализации, спеков и задач.
 
-```
-/
-├── GLOSSARY-MAP.md
-├── docs/
-│   └── adr/                          ← system-wide decisions
-├── src/
-│   ├── ordering/
-│   │   ├── GLOSSARY.md
-│   │   └── docs/adr/                 ← context-specific decisions
-│   └── billing/
-│       ├── GLOSSARY.md
-│       └── docs/adr/
-```
+## Когда предлагать ADR
 
-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Предлагай записать ADR (формат — [ADR-FORMAT.md](./ADR-FORMAT.md)) только если выполняются **все три** условия:
+1. **Дорого откатить:** цена смены решения позже существенна.
+2. **Неочевидно без контекста:** будущий читатель спросит «почему сделали именно так?».
+3. **Реальный компромисс:** были рабочие альтернативы, и выбор сделан по конкретным причинам.
 
-## During the session
-
-### Challenge against the glossary
-
-When the user uses a term that conflicts with the existing language in `GLOSSARY.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y. Which is it?"
-
-### Sharpen fuzzy language
-
-When the user uses vague or overloaded terms, propose a precise canonical term. "You're saying 'account': do you mean the Customer or the User? Those are different things."
-
-### Discuss concrete scenarios
-
-When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
-
-### Cross-reference with code
-
-When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible. Which is right?"
-
-### Update GLOSSARY.md inline
-
-When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up: capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
-
-`GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
-
-### Offer ADRs sparingly
-
-Only offer to create an ADR when all three are true:
-
-1. **Hard to reverse**: the cost of changing your mind later is meaningful
-2. **Surprising without context**: a future reader will wonder "why did they do it this way?"
-3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
-
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+Если хотя бы одного условия нет — ADR не нужен.

@@ -1,10 +1,11 @@
 ---
 name: grilling
-description: Подробное пошаговое интервью по дереву решений раундами вопросов.
-disable-model-invocation: true
+description: Пошаговое интервью по дереву решений раундами вопросов. Открывай, когда есть 3+ связанных развилки требований, поведения или узких кейсов; для 1–2 простых вопросов спрашивай напрямую без этого навыка.
 ---
 
-Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
+Skip this skill for 1–2 straightforward clarifying questions — just ask directly. Use it when material behavior, constraints, or edge cases branch into multiple dependent decisions.
+
+Interview the user thoroughly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
@@ -28,4 +29,4 @@ Each round the user answers reshapes the tree: settled decisions push the fronti
 
 Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), look it up yourself or delegate when subagents are available and useful; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for that exploration to finish; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
-The session is done when material behavior, constraints and scope are settled, with remaining assumptions explicit. Reuse previously agreed answers. In prepare, return these decisions for its single package approval; standalone, confirm the shared understanding before implementation. Routine implementation details do not require an interview.
+The session is done when material behavior, constraints and scope are settled, with remaining assumptions explicit. Reuse previously agreed answers and confirm the shared understanding before implementation. Routine implementation details do not require an interview.

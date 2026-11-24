@@ -8,7 +8,7 @@ The user has asked for a **retrospective**. You are suggesting improvements to t
 
 ## Steps
 
-1. Read and apply [writing-for-agents](../writing-for-agents/SKILL.md) for the writing style guide.
+1. Keep suggestions concrete, concise, and backed by observed events from the session.
 
 2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
 

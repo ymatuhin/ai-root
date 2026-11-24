@@ -2,4 +2,4 @@ interface:
   display_name: "grilling"
   short_description: "Подробное интервью по дереву решений раундами вопросов"
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true
