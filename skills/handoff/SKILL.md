@@ -5,7 +5,7 @@ argument-hint: "На чём сфокусироваться в следующей
 disable-model-invocation: true
 ---
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work. Inside a workspace, save to `.scratch/YYYY-MM-DD-<topic>/handoff.md` (reuse an existing topic folder if present; globally gitignored and accessible to sandboxed sessions) and print its absolute path; outside a workspace, fall back to the OS temporary directory (`$TMPDIR`, else `/tmp`; `%TEMP%` on Windows).
+Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to `/tmp/YYYY-MM-DD-<topic>/handoff.md` (reuse an existing topic folder if present; on Windows fall back to `%TEMP%`) and print its absolute path.
 
 Include a "suggested skills" section in the document, naming which skills the next agent should read and apply with the tools available in its environment.
 

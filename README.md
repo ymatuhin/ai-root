@@ -26,7 +26,6 @@ python3 scripts/install.py
 | Навыки OpenCode | `~/.config/opencode/skills/<имя>` |
 | Навыки Antigravity | `~/.gemini/config/skills/<имя>` |
 | Разрешения Codex | `~/.codex/rules/*.rules` |
-| Глобальный Git-игнор | `.scratch/` в `core.excludesfile` или `$XDG_CONFIG_HOME/git/ignore` |
 
 Учитываются `CODEX_HOME` и `XDG_CONFIG_HOME`. Заменяемые файлы перемещаются в `~/.local/state/ai-root/backups/<дата-время>/` с сохранением пути относительно домашней папки. Старый репозиторий навыков сохраняется там целиком, включая `.git` и незакоммиченные изменения. Старый удалённый репозиторий скрипт не удаляет.
 

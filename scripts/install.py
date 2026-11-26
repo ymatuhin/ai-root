@@ -5,7 +5,6 @@ from datetime import datetime
 from pathlib import Path
 import os
 import shutil
-import subprocess
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,26 +31,6 @@ def link(source, destination):
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.symlink_to(source, target_is_directory=source.is_dir())
     print(f'Link: {destination} -> {source}')
-
-
-def ensure_global_gitignore():
-    result = subprocess.run(
-        ['git', 'config', '--global', '--path', 'core.excludesfile'],
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode == 0 and result.stdout.strip():
-        excludes = Path(result.stdout.strip()).expanduser()
-    else:
-        excludes = Path(os.environ.get('XDG_CONFIG_HOME', HOME_DIR / '.config')).expanduser() / 'git/ignore'
-    excludes.parent.mkdir(parents=True, exist_ok=True)
-    lines = excludes.read_text().splitlines() if excludes.is_file() else []
-    if not any(line.strip() in {'.scratch', '.scratch/', '/.scratch', '/.scratch/'} for line in lines):
-        with excludes.open('a') as handle:
-            if lines and lines[-1] != '':
-                handle.write('\n')
-            handle.write('.scratch/\n')
-        print(f'Gitignore: added .scratch/ to {excludes}')
 
 
 def main():
@@ -105,7 +84,6 @@ def main():
 
     for rule in sorted((ROOT / 'rules/codex').glob('*.rules')):
         link(rule, codex_dir / 'rules' / rule.name)
-    ensure_global_gitignore()
     print(f'Connected {len(skills)} skills and global instructions.')
 
 
